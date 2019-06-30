@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block container %}
+<h2 class="my-4">Cadastro de Clientes</h2>
+<form action="{% url 'website:create_cliente' %}" method="POST" class="needs-validation shadow rounded-lg p-4"
+    novalidate>
+    {% csrf_token %}
+    <div class="row">
+
+        <div class="col-md-9">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" placeholder="Ex: João Neto" name="nome" required>
+                <div class="invalid-feedback">Por favor, informe seu nome.</div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="tel">Telefone:</label>
+                <input type="text" class="form-control" id="tel" placeholder="Ex: (83)91234-5678" name="tel"
+                    minLength="13" maxLength="14" size="14" required>
+                <div class="invalid-feedback">Por favor, informe seu telefone.</div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="cep">CEP:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="cep" placeholder="Ex: 12345-678" name="cep"
+                        minLength="8" maxLength="9" size="9" required>
+                    <button type="button" id="getCep" class="btn btn-primary input-group-append"><span><i
+                                class="fas fa-search" onclick=""></i></span></button>
+                    <div class="invalid-feedback">Por favor, informe seu CEP.</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="rua">Rua:</label>
+                <input type="text" class="form-control" id="rua" placeholder="Ex: Sem Nome" name="rua" required>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="num">Número:</label>
+                <input type="text" class="form-control" id="num" placeholder="Ex: 15A" name="num" required>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="bairro">Bairro:</label>
+                <input type="text" class="form-control" id="bairro" placeholder="Ex: Centro" name="bairro" required>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="cidade">Cidade:</label>
+                <input type="text" class="form-control" id="cidade" placeholder="Ex: João Pessoa" name="cidade"
+                    required>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="uf">UF:</label>
+                <input type="text" class="form-control" id="uf" placeholder="Ex: PB" name="uf" required>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="pais">País:</label>
+                <input type="text" class="form-control" id="pais" placeholder="Ex: Brasil" name="pais" required>
+            </div>
+        </div>
+        <div class="col-md-12 my-4">
+            <div id="map" style="height: 400px;"></div>
+        </div>
+
+    </div>
+    <button type="submit" class="btn btn-success"><span><i class="fas fa-user-check mr-2"></i></span>Salvar</button>
+</form>
+{% endblock %}

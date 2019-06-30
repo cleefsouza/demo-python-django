@@ -1,0 +1,30 @@
+{% load socialaccount %}
+{% providers_media_js %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="../static/css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Facebook Login</title>
+</head>
+
+<body>
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="bg-dark p-5 text-white">
+            <h3 class="pt-2">Demo App com Python e Django</h3>
+            <p>Realize o login com a sua conta do facebook para acessar as <br/> funcionalidades da aplicação.</p>
+            <a href="{% provider_login_url 'facebook' method='js_sdk' %}" class="nav-link text-white p-2"><span><i
+                        class="fab fa-facebook mr-2 text-info"></i></span>Facebook Login</a>
+        </div>
+    </div>
+</body>
+
+</html>

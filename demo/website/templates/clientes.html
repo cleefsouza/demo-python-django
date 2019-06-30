@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block container %}
+<h2 class="my-4">Clientes Cadastrados</h2>
+<table class="table table-striped text-center rounded-lg shadow border">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.endereco.cep}}, {{cliente.endereco.rua}}, Nº {{cliente.endereco.num}},
+                {{cliente.endereco.bairro}}, {{cliente.endereco.cidade}} - {{cliente.endereco.uf}},
+                {{cliente.endereco.pais}}</td>
+            <td>{{cliente.telefone.numero}}</td>
+            <td>
+                <a href="{% url 'website:update_cliente' cliente.id %}" class="text-info"><span><i class="fas fa-user-edit"></i></span></a>
+                <a href="{% url 'website:delete_cliente' cliente.id %}" class="text-danger"><span><i
+                            class="fas fa-user-times ml-2"></i></span></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h1>{{modal_cliente.nome}}</h1>
+<a href="{% url 'website:form_cadastro' %}" class="btn btn-primary mt-2"><span><i
+            class="fas fa-user-plus mr-2"></i></span>Cadastrar</a>
+{% endblock container %}
